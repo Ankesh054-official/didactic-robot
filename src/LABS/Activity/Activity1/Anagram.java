@@ -1,32 +1,34 @@
 package LABS.Activity.Activity1;
 
-//Q1.Java String Program to Check Anagram
-//Input: str1 = "Listen"
-//str2 = "Silent"
-//Output: Yes
-//Explanation: A string is called Anagram of other string when the it contains the same characters, only the order of characters can be different.
+import java.util.Scanner;
 
 public class Anagram {
+    /**
+     * @implNote
+     * <ol>
+     *     <li>If {@code string1} is anagram of {@code string2} then lengths of both string should be equal.</li>
+     *     <li>Converts to lowercase for case-insensitive match.</li>
+     *     <li>Converted {@code string1} to a character array.</li>
+     *     <li>Iterate through {@code string1_char_array} a character array.</li>
+     *     <li>Access and check for each char whether that exists in {@code string2}.</li>
+     *     <li>If true than it'll continue iterations after completion of loop returns {@code "YES"} (means It's an anagram) and on false instantly return {@code "NO"} as their is no need to do more iteration.</li>
+     *     <li>{@code string1} has to contain all char that exists in {@code string2} to be an anagram of {@code string2}.</li>
+     * </ol>
+     * @param string1
+     * @param string2
+     * @return {@code String "YES" || "NO"}
+     */
+    static String anagramCheck(String string1, String string2){
+        if (string1.length() == string2.length()){
 
-    static String anagramCheck(String str, String st){
+            string1 = string1.toLowerCase();
+            string2 = string2.toLowerCase();
 
-        //Convert to lowercase for case-insensitive match.
-        str = str.toLowerCase();
-        st = st.toLowerCase();
+            char [] string1_char_array = string1.toCharArray();
 
-        // Converted a string to a character array.
-        char [] strArr = str.toCharArray();
+            for (char i : string1_char_array){
 
-        // To contains same character length should be equal.
-        if (st.length() == strArr.length){
-
-            // Iterate through array, Accessing each char and
-            // check whether that char exists in string,
-            // on each iteration true will continue iteration
-            // and on false instantly return NO.
-            for (char i : strArr){
-
-                if(!(st.contains(Character.toString(i)))){
+                if(!(string2.contains(Character.toString(i)))){
                     return "NO";
                 }
 
@@ -38,6 +40,8 @@ public class Anagram {
     }
 
     public static void main(String[] args) {
-        System.out.println(anagramCheck("ANKESh","esaknh"));
+        Scanner get = new Scanner(System.in);
+
+        System.out.println(anagramCheck(get.nextLine(), get.nextLine()));
     }
 }
