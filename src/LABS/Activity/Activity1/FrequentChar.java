@@ -57,7 +57,13 @@ public class FrequentChar {
     }
 
     public static void main(String[] args) {
-        System.out.println(mostFrequentChar("ankesh"));
+//        System.out.println(mostFrequentChar("ankessah sharmammmm"));
 
+        String arr[] = "ankesmsahm".split("m");
+        for (String i: arr){
+            System.out.println(i);
+        }
+
+        System.out.println(arr.length);
     }
 }

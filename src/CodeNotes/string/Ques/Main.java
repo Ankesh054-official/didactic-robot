@@ -1,37 +1,64 @@
 package CodeNotes.string.Ques;
 
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
-        String str = new String("This cc        is my De              mo String");
-        String output = new String();
 
-        // ["This", "is", "my", "Demo", "String"]
-        String []arr = str.split(" ");
-        int len = arr.length;
+    static boolean palandromUsingTwoPointer(String st){
+        st = st.toLowerCase();
 
-        // Traversing from (length_of_array-1) to 0.
-        for(int i = (len-1); i >= 0; i--){
-            if(!(arr[i]).isBlank()){
-                output += (" "+arr[i]);
+        for(int i = 0, j = (st.length()-1); i < j; i++,j--){
+            if (st.charAt(i) != st.charAt(j)){
+                return false;
             }
         }
+        return true;
+    }
 
-        System.out.println(output.trim());
+    static boolean palandromUsingStringBuilder(String st){
+        st = st.toLowerCase();
 
-        String st = new String("Ankesh");
-        String strs = new String("Ankesh");
-        String ste = "Ankesh";
-        String sted = "Ankesh";
+        StringBuilder revst = new StringBuilder(st).reverse();
 
-        System.out.println("=========obj2===========");
-        System.out.println(st == strs);
-        System.out.println(st.equals(strs));
+        if(revst.toString().equals(st)){
+            return true;
+        }else{
+            return false;
+        }
 
-        System.out.println(st == ste);
-        System.out.println(st.equals(ste));
+    }
 
-        System.out.println(ste == sted);
-        System.out.println(ste.equals(sted));
+    static int countWords(String original){
+        String [] orig = original.split(" ");
+        int count = 0;
+        for (String i : orig){
+            if(!i.isEmpty()){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    static int count(String st){
+        for (int i = 0; i < st.length(); i++){
+
+        }
+//        return  arr.length;
+        return 1;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner get = new Scanner(System.in);
+        String str = get.nextLine();
+
+
+//        System.out.println(palandromUsingStringBuilder(str)?"palandrom":"Not a palandrom");
+//
+//        System.out.println(palandromUsingTwoPointer(str)?"palandrom":"Not a palandrom");
+
+        System.out.println(count(str));
+
 
 
     }
