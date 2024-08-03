@@ -36,14 +36,10 @@ public class SimpleCalculator extends RuntimeException{
         return a%b;
     }
 
-    static int switchOperation(String oper) throws InputMismatchException {
-        Scanner get = new Scanner(System.in);
-        System.out.println("Enter two space-seperated numbers:\t");
-        int a = get.nextInt();
-        int b = get.nextInt();
+    static int switchOperation(String operation, int a, int b) throws InputMismatchException {
         int result = 0;
 
-        switch (oper){
+        switch (operation){
             case "+":
                 result = add(a,b);
                 break;
@@ -68,26 +64,32 @@ public class SimpleCalculator extends RuntimeException{
                 throw new InputMismatchException("Invalid! Operation");
         }
 
-        System.out.print(a+" "+oper+" "+b+" = ");
+        System.out.print(a+" "+operation+" "+b+" = ");
         return result;
     }
 
     public static void main(String[] args) {
-        String listOfOperations = "List of Operations:\n+ for ADD\n- for Subtract\n* for Multiply\n/ for Divide\n% for Modulo\n\n";
-        String oper = "";
+        String listOfOperations = "List of Operations:\n+ for ADD\n- for Subtract\n* for Multiply\n/ for Divide\n% for Modulo\n? to Exit\n\n";
+        String operation = "";
 
-        for(;;){
+        do{
             System.out.print(listOfOperations+"Choose Operation:\t");
-            Scanner operator = new Scanner(System.in);
-            oper = operator.nextLine();
+
+            Scanner get = new Scanner(System.in);
+            operation = get.nextLine();
+
+            System.out.println("Enter two space-seperated numbers:\t");
+            int a = get.nextInt();
+            int b = get.nextInt();
+
             try{
-                System.out.println(switchOperation(oper));
+                System.out.println(switchOperation(operation, a, b));
             }catch (InputMismatchException input){
                 System.out.println(input);
             }finally {
                 continue;
             }
-        }
+        }while (!operation.equals("?"));
     }
 
 }
