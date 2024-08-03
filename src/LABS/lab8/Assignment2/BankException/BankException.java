@@ -1,6 +1,5 @@
 package LABS.lab8.Assignment2.BankException;
 
-import LABS.lab8.Assignment2.BankAccount;
 
 public class BankException extends Exception{
     private String msg = "";

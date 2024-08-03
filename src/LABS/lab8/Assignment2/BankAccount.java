@@ -5,15 +5,7 @@ import LABS.lab8.Assignment2.BankException.LowBanalceException;
 import LABS.lab8.Assignment2.BankException.SystemException;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
-/**
- * 2.Write a Java program to simulate a simple banking application.
- *  * ● Create a class BankAccount with a balance and methods for deposit and
- *  * withdrawal.
- *  * ● Implement exception handling for withdrawal operations to prevent overdrawing.
- *  * ● Handle the scenario when the withdrawal amount is greater than the balance.
- */
 
 public class BankAccount{
     private String accountHolderName;
@@ -23,7 +15,12 @@ public class BankAccount{
     private int balance = 0;
     private String passBook = "";
 
-
+    /**
+     * @implNote Parametrized constructor to initilize values.
+     * @param accountHolderName
+     * @param bankName
+     * @param initialAmount
+     */
     BankAccount(String accountHolderName, String bankName, int initialAmount){
         this.accountHolderName = accountHolderName;
         this.bankName = bankName;
@@ -31,6 +28,10 @@ public class BankAccount{
         this.accountNumberInitilize();
     }
 
+    /**
+     * @see Object#toString()
+     * @return {@code String}
+     */
     @Override
     public String toString() {
         return "BankAccount{" +
@@ -41,6 +42,14 @@ public class BankAccount{
                 '}';
     }
 
+
+    /**
+     * Method: {@link #accountNumberInitilize()}
+     * @implNote
+     * Used to assign new account number to new object. By accessing the
+     * last element of the {@link  #accountNumbers}  ArrayList<Integer>,
+     * Store and assign one higher the last assigned account number.
+     */
     private void accountNumberInitilize(){
         if(accountNumbers.size() > 0){
             int lastAccountNumber = accountNumbers.getLast();
@@ -52,6 +61,23 @@ public class BankAccount{
         }
     }
 
+    /**
+     * Method: {@link #deposit(int, int)}
+     *
+     * @implNote
+     * Used to deposit {@code amount} to current {@code balance},
+     * Techically used to increase {@code balance} by
+     * {@code amount}.
+     * Throws {@code BankException("Entered Account Mismatch")} if
+     * {@code accountNumber} doesn't match.
+     * Throws {@code SystemException("System malfunction: trying to
+     * deposit "+amount+" amount")} if {@code amount} is 0 or less than 0.
+     *
+     * @param accountNumber
+     * @param amount
+     * @throws SystemException
+     * @throws BankException
+     */
     public void deposit(int accountNumber, int amount) throws SystemException, BankException{
         System.out.println("Deposit "+amount);
         if (!accountNumbers.contains(accountNumber) && accountNumber != this.accountNumber) throw new BankException("Entered Account Mismatch");
@@ -59,6 +85,21 @@ public class BankAccount{
         this.balance += amount;
     }
 
+    /**
+     * Method: {@link #withdraw(int, int)}
+     *
+     * @implNote
+     * Used to withdraw {@code amount} from current {@code balance},
+     * Technically decrease {@code balance} by {@code amount}.
+     * Throws {@code BankException("Entered Account Mismatch")} if
+     * {@code accountNumber} doesn't match.
+     * Throws {@code LowBanalceException("Insufficient Balance.")}
+     * if {@code balance} is less than {@code amount}.
+     * @param accountNumber
+     * @param amount
+     * @throws LowBanalceException
+     * @throws BankException
+     */
     public void withdraw(int accountNumber, int amount)throws LowBanalceException, BankException {
         System.out.println("Withdraw "+amount);
         if (!accountNumbers.contains(accountNumber) && accountNumber != this.accountNumber) throw new BankException("Entered Account Mismatch");
@@ -66,6 +107,17 @@ public class BankAccount{
         this.balance -= amount;
     }
 
+    /**
+     *Method: {@link #getPassbook(int)}
+     *
+     * @implNote
+     * Used to print all the attributes of current instance.
+     * Throws {@code BankException("Entered Account Mismatch")} if
+     * {@code accountNumber} doesn't match.
+     *
+     * @param accountNumber
+     * @throws BankException
+     */
     public void getPassbook(int accountNumber) throws BankException{
         System.out.println("Passbook");
         if (!accountNumbers.contains(accountNumber) && accountNumber != this.accountNumber) throw new BankException("Entered Account Mismatch");
@@ -76,6 +128,18 @@ public class BankAccount{
         System.out.println(this.passBook);
     }
 
+    /**
+     * Method: {@link #getBalance(int)}
+     *
+     * @implNote
+     * Used to get balance of current instance.
+     * Throws {@code BankException("Entered Account Mismatch")} if
+     * {@code accountNumber} doesn't match.
+     *
+     * @param accountNumber
+     * @return {@code this.balance}
+     * @throws BankException
+     */
     public int getBalance(int accountNumber) throws BankException{
         System.out.println("Current Balance");
         if (!accountNumbers.contains(accountNumber) && accountNumber != this.accountNumber) throw new BankException("Entered Account Mismatch");

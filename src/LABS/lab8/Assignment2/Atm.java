@@ -4,10 +4,19 @@ import LABS.lab8.Assignment2.BankException.BankException;
 import LABS.lab8.Assignment2.BankException.LowBanalceException;
 import LABS.lab8.Assignment2.BankException.SystemException;
 
-import java.util.Scanner;
-
 public class Atm {
 
+    /**
+     * Method: {@link #operate(BankAccount, int, int, int)}
+     * @implNote
+     * Used to invoke {@code deposit(accountNumber, deposit)},
+     * {@code withdraw(accountNumber, withdraw)} and {@code getBalance(accountNumber)}.
+     *
+     * @param obj
+     * @param accountNumber
+     * @param deposit
+     * @param withdraw
+     */
     static void operate(BankAccount obj, int accountNumber,  int deposit, int withdraw){
 
         try{

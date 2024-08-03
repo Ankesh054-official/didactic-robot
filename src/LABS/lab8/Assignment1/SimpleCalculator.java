@@ -5,37 +5,84 @@ import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/**
- * 1.Create a Java program that acts as a simple calculator.
- * ● The program should prompt the user to enter two numbers and an operator (+, -,
- * *, /).
- * ● Perform the corresponding calculation based on the operator.
- * ● Handle potential exceptions, such as division by zero or invalid operator input.
- * ● Display the result or an appropriate error message.
- */
+
 public class SimpleCalculator extends RuntimeException{
 
+    /**
+     * @implNote
+     * 
+     * {@link #add(int, int)} To add two integers.
+     * @param a
+     * @param b
+     * @return {@code a+b}
+     */
     static int add(int a, int b){
         return a+b;
     }
 
+    /**
+     * @implNote
+     * {@link #subtract(int, int)} To subtract two integers.
+     * @param a
+     * @param b
+     * @return {@code a-b}
+     */
     static int subtract(int a, int b){
         return a-b;
     }
 
+    /**
+     * @implNote
+     * {@link #multiply(int, int)} To multiply two integers.
+     * @param a
+     * @param b
+     * @return {@code a*b}
+     */
     static int multiply(int a, int b){
         return a*b;
     }
 
+    /**
+     * @implNote
+     * {@link #divide(int, int)} To divide two integers.
+     * @param a
+     * @param b
+     * @return {@code a/b}
+     */
     static int divide(int a, int b) throws ArithmeticException{
         if(b == 0) throw new ArithmeticException("Divide by zero");
         return a/b;
     }
 
+    /**
+     * @implNote
+     * {@link #modulo(int, int)} to calculate the remainder after dividing
+     * {@code a} by {@code b}
+     * @param a
+     * @param b
+     * @return {@code a%b}
+     */
     static int modulo(int a, int b){
         return a%b;
     }
 
+    /**
+     * @implNote
+     * Based on {@code operation} the {@code switch} statement decides
+     * that which case has to excuted.
+     * According to the operation respective method is invoked, whatever
+     * invoked method returns get stored in {@code result} and returned.
+     *
+     * For {@code operation} which is not defined
+     * {@code InputMismatchException("Invalid! Operation")} will be thrown.
+     *
+     * @param operation
+     * @param a
+     * @param b
+     *
+     * @return {@code result}
+     * @throws InputMismatchException
+     */
     static int switchOperation(String operation, int a, int b) throws InputMismatchException {
         int result = 0;
 
@@ -69,7 +116,13 @@ public class SimpleCalculator extends RuntimeException{
     }
 
     public static void main(String[] args) {
-        String listOfOperations = "List of Operations:\n+ for ADD\n- for Subtract\n* for Multiply\n/ for Divide\n% for Modulo\n? to Exit\n\n";
+        String listOfOperations = "List of Operations:\n" +
+                                    "+ for ADD\n" +
+                                    "- for Subtract\n" +
+                                    "* for Multiply\n" +
+                                    "/ for Divide\n" +
+                                    "% for Modulo\n" +
+                                    "? to Exit\n\n";
         String operation = "";
 
         do{
