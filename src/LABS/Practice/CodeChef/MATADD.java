@@ -12,25 +12,28 @@ public class MATADD {
         int [][]B = new int [N][M];
         int [][]C = new int [N][M];
 
-
+        // Storing Value in A
         for(int i = 0; i < N; i++){
             for(int j = 0; j < M; j++){
                 A[i][j] = sc.nextInt();
             }
         }
-
+        // Storing Value in B
         for(int i = 0; i < N; i++){
             for(int j = 0; j < M; j++){
                 B[i][j] = sc.nextInt();
             }
         }
 
+        // Adding A+B and storing in C
         for(int i = 0; i < N; i++){
             for(int j = 0; j < M; j++){
                 C[i][j] = A[i][j] + B[i][j];
             }
         }
 
+
+        // Reterival and printing
         for(int i = 0; i < N; i++){
             for(int j = 0; j < M; j++){
                 System.out.print(C[i][j] + " ");

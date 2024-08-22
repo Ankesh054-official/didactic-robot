@@ -11,6 +11,7 @@ public class Main {
         for(int i : arr){
             hs.add(i);
         }
+        hs.add("Ankesh");
         System.out.println(hs.size() == arr.length);
     }
 }

@@ -23,4 +23,3 @@
     - Continuous Integration/Continuous Deployment (CI/CD) configuration files (e.g., `.github/workflows/`, `.gitlab-ci.yml`).
     - IDE configuration files (e.g., `.vscode/`, `.idea/`, `.project`, `.workspace`).
     - Localization and internationalization files (`locales/`, `i18n/`, etc.).
-
