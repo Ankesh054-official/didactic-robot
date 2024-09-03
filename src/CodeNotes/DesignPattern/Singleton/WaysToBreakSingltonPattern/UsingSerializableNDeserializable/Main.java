@@ -12,7 +12,7 @@ public class Main {
         System.out.println(obj.hashCode());
 
         try{
-            oos = new ObjectOutputStream(new FileOutputStream("ObjectHashByeCode.txt"));
+            oos = new ObjectOutputStream(new FileOutputStream("src\\CodeNotes\\DesignPattern\\Singleton\\WaysToBreakSingltonPattern\\UsingSerializableNDeserializable\\ObjectHashByeCode.txt"));
             oos.writeObject(obj);
         }catch (FileNotFoundException FNFE){
             FNFE.printStackTrace();
@@ -30,7 +30,7 @@ public class Main {
 
         ObjectInputStream ois = null;
         try{
-            ois = new ObjectInputStream(new FileInputStream("ObjectHashByeCode.txt"));
+            ois = new ObjectInputStream(new FileInputStream("src\\CodeNotes\\DesignPattern\\Singleton\\WaysToBreakSingltonPattern\\UsingSerializableNDeserializable\\ObjectHashByeCode.txt"));
             try{
                 SpecialEditionCar ss = (SpecialEditionCar) ois.readObject();
                 System.out.println(ss.hashCode());
